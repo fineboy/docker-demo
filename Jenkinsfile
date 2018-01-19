@@ -2,7 +2,7 @@ node('tomcat-user') {
       stage ('git checkout stage') {
             checkout scm
     }
-    stage('NPM Build') {
+    stage('NPM Test') {
      nodejs(nodeJSInstallationName: 'nodejs') {
        sh 'npm install --only=dev'
        sh 'npm test'

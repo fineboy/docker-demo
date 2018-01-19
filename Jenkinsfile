@@ -8,7 +8,7 @@ node('tomcat-user') {
        sh 'npm test'
      }
    }
-     stage ('build/push') {
+     stage ('Docker build/push') {
     docker.withRegistry('https://540098831271.dkr.ecr.eu-west-1.amazonaws.com', 'ecr-2') {
     def customImage = docker.build("540098831271.dkr.ecr.eu-west-1.amazonaws.com/myapp:${BUILD_NUMBER}")
 
